@@ -1,0 +1,88 @@
+@mixin resp($prop, $startSize, $minSize) {
+	$addSize: $startSize - $minSize;
+	@media (max-width: 1440px) {
+		#{$prop}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 360px) / (1440 - 360)));
+	}
+	@media (max-width: 360px) {
+		#{$prop}: #{$minSize + px};
+	}
+}
+.wrapper {
+	padding: 0;
+	display: flex;
+}
+.page {
+	width: 100%;
+}
+.container {
+	max-width: 1440px;
+	padding: 0 20px;
+	margin: 0 auto;
+	width: 100%;
+	@include resp('padding-right', 20, 15);
+	@include resp('padding-left', 20, 15);
+}
+.generator {
+	height: 100%;
+	padding: 50px 0;
+	display: flex;
+	align-items: center;
+	@include resp('padding-top', 50, 20);
+	@include resp('padding-bottom', 50, 20);
+	h1 {
+		margin: 0 0 25px 0;
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 20px;
+		@include resp('row-gap', 20, 15);
+		margin: 0 0 30px 0;
+	}
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		@include resp('row-gap', 20, 10);
+	}
+	&__alert {
+		color: #DE7E7E;
+		&_hidden {
+			display: none;
+		}
+	}
+}
+.field.field_result input {
+	color: #fff;
+}
+.field {
+	max-width: 300px;
+	width: 100%;
+	input {
+		width: 100%;
+	}
+	&__button-icon {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		transition: 250ms;
+		border-radius: 50%;
+		&:hover {
+			background: #2b3642;
+			svg {
+				fill: #fff;
+			}
+		}
+		svg {
+			fill: #A7A7A7;
+			transition: 250ms;
+		}
+	}
+}

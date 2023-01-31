@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="https://fn9ne.github.io/creativemind/img/favicon/favicon.ico">
+		<link rel="icon" href="https://fn9ne.github.io/creativemind/img/favicon/favicon.svg" type="image/svg+xml">
+		<link rel="icon" href="https://fn9ne.github.io/creativemind/img/favicon/favicon_apple.png">
+		<link rel="manifest" href="https://fn9ne.github.io/creativemind/files/manifest.webmanifest">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+		<link rel="stylesheet" href="css/null.css">
+		<link rel="stylesheet" href="css/flib.css">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Random String Generator</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<main class="page">
+				<section class="generator">
+					<div class="generator__container container">
+						<h1>random string generator</h1>
+						<form action="#" method="post" class="generator__form" id="generator">
+							<div class="field field__none-type">
+								<input type="text" name="length" placeholder="String length">
+							</div>
+							<div class="text">
+								<p>Which characters are allowed to occur in the strings?</p>
+							</div>
+							<div class="generator__fieldset">
+								<label class="checkbox">
+									<input type="checkbox" name="checkbox" value="digits">
+									<div class="checkbox__label">
+										<div class="checkbox__icon">
+											<svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M12.7279 0.29347C13.0907 0.684137 13.0907 1.31546 12.7279 1.70612L5.29896 9.707C4.93621 10.0977 4.35002 10.0977 3.98728 9.707L0.271971 5.70656C-0.0906569 5.31589 -0.0906569 4.68458 0.271971 4.29391C0.634656 3.90324 1.22259 3.90324 1.58533 4.29391L4.617 7.58489L11.4163 0.29347C11.779 -0.0978232 12.3652 -0.0978232 12.7279 0.29347Z">
+												</path>
+											</svg>
+										</div>
+									</div>
+									<div class="checkbox__text">Numeric digits (0-9)</div>
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="checkbox" value="uppercase">
+									<div class="checkbox__label">
+										<div class="checkbox__icon">
+											<svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M12.7279 0.29347C13.0907 0.684137 13.0907 1.31546 12.7279 1.70612L5.29896 9.707C4.93621 10.0977 4.35002 10.0977 3.98728 9.707L0.271971 5.70656C-0.0906569 5.31589 -0.0906569 4.68458 0.271971 4.29391C0.634656 3.90324 1.22259 3.90324 1.58533 4.29391L4.617 7.58489L11.4163 0.29347C11.779 -0.0978232 12.3652 -0.0978232 12.7279 0.29347Z">
+												</path>
+											</svg>
+										</div>
+									</div>
+									<div class="checkbox__text">Uppercase letters (A-Z)</div>
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" checked name="checkbox" value="lowercase">
+									<div class="checkbox__label">
+										<div class="checkbox__icon">
+											<svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M12.7279 0.29347C13.0907 0.684137 13.0907 1.31546 12.7279 1.70612L5.29896 9.707C4.93621 10.0977 4.35002 10.0977 3.98728 9.707L0.271971 5.70656C-0.0906569 5.31589 -0.0906569 4.68458 0.271971 4.29391C0.634656 3.90324 1.22259 3.90324 1.58533 4.29391L4.617 7.58489L11.4163 0.29347C11.779 -0.0978232 12.3652 -0.0978232 12.7279 0.29347Z">
+												</path>
+											</svg>
+										</div>
+									</div>
+									<div class="checkbox__text">Lowercase letters (a-z)</div>
+								</label>
+								<div class="generator__alert generator__alert_hidden">
+									At least one set of characters must be selected!
+								</div>
+							</div>
+							<button type="submit" class="button"><span>generate</span></button>
+						</form>
+						<div class="generator__result">
+							<h4>Result</h4>
+							<div class="field field__none-type field_result">
+								<input type="text" name="length" placeholder="Result field" disabled>
+								<div class="field__button-icon copy">
+									<svg width="14" height="14" viewBox="-32 0 512 512" xmlns="http://www.w3.org/2000/svg">
+										<path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+		<script src="js/flib.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
