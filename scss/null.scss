@@ -16,23 +16,10 @@ html, body {
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
 }
-input, textarea, button {
+input, button {
 	font-size: 14px;
 	font-family: inherit;
 }
 button {
 	cursor: pointer
-}
-a, a:hover {
-	text-decoration: none
-}
-li {
-	list-style: none
-}
-img {
-	vertical-align: top
-}
-h1, h2, h3, h4, h5, h6 {
-	font-size: inherit;
-	font-weight: 400
 }

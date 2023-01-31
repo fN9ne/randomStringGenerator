@@ -3,6 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	const checkboxElements = document.querySelectorAll('.checkbox input');
 	const alert = document.querySelector('.generator__alert');
 	const resultField = document.querySelector('.field_result input');
+	const lengthField = document.querySelector('.generator__length input');
+
+	lengthField.addEventListener('input', event => {
+		const value = event.target.value;
+
+		if (isDigit(value)) {
+			if (parseInt(value) > 100) {
+				event.target.value = 100;
+			}
+			if (parseInt(value) < 1) {
+				event.target.value = 1;
+			}
+		}
+	});
+
+	function isDigit(string) {
+		return /^\d+$/.test(string);
+	}
 
 	const errors = {
 		checkboxes: 'At least one set of characters must be selected!',
@@ -17,8 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		event.preventDefault();
 
 		let sample = result = '';
-
-		const lengthField = event.target.length;
 
 		const checkboxes = event.target.checkbox;
 
@@ -70,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	document.querySelector('.copy').addEventListener('click', () => {
-		console.log(window.navigator.clipboard.writeText(resultField.value));
+		window.navigator.clipboard.writeText(resultField.value);
 	});
 
 });

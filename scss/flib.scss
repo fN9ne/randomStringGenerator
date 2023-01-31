@@ -1,0 +1,193 @@
+@mixin resp($prop, $startSize, $minSize) {
+	$addSize: $startSize - $minSize;
+	@media (max-width: 1440px) {
+		#{$prop}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 360px) / (1440 - 360)));
+	}
+	@media (max-width: 360px) {
+		#{$prop}: #{$minSize + px};
+	}
+}
+@import url('https://fonts.googleapis.com/css?family=Space+Grotesk:regular,500,700');
+html, body {
+	font-family: 'Space Grotesk';
+}
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	background: #0D1015;
+	color: #fff;
+	padding: 50px;
+}
+.field {
+	position: relative;
+	display: inline-block;
+	input {
+		background: #151C24;
+		width: 300px;
+		height: 40px;
+		border-radius: 8px;
+		font-weight: 500;
+		padding: 0 15px 0 40px;
+		color: #fff;
+		border: 2px solid transparent;
+		transition: 250ms;
+		&::placeholder {
+			color: #A7A7A7;
+			transition: 250ms;
+		}
+		&:focus::placeholder {
+			opacity: 0;
+		}
+		&:disabled {
+			background: #161e27;
+			color: #6d6d6d;
+			&::placeholder {
+				color: #585858;
+			}
+		}
+	}
+}
+.button {
+	width: 190px;
+	height: 40px;
+	padding: 0 30px;
+	border-radius: 8px;
+	background: #349DA4;
+	font-weight: 700;
+	color: #FFFFFF;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	transition: 250ms;
+	position: relative;
+	overflow: hidden;
+	span {
+		position: relative;
+		z-index: 2;
+	}
+	div {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: #338f96;
+		display: block;
+		position: absolute;
+		animation: ripple 500ms linear;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+		z-index: 1;
+		@media (hover: hover) {
+			background: #212A34;
+		}
+	}
+	@media (hover: hover) {
+		background: #151C24;
+	}
+}
+@keyframes ripple {
+	from {
+		width: 20px;
+		height: 20px;
+		opacity: 1;
+	}
+	to {
+		width: 500px;
+		height: 500px;
+		opacity: 0;
+	}
+}
+h1 {
+	font-size: 48px;
+	font-weight: bold;
+	margin-bottom: 0.45em;
+	text-transform: uppercase;
+	color: #fff;
+	@include resp('font-size', 48, 24);
+}
+h4 {
+	font-weight: 500;
+	font-size: 21px;
+	margin-bottom: 0.75em;
+	color: #E7E7E7;
+	@include resp('font-size', 19, 16);
+}
+.checkbox {
+	display: flex;
+	gap: 8px;
+	cursor: pointer;
+	transition: 250ms;
+	&__label {
+		width: 20px;
+		height: 20px;
+		border: 2px solid #3A4551;
+		background: #151C24;
+		border-radius: 50%;
+		transition: 350ms;
+		position: relative;
+	}
+	&__text {
+		line-height: 20px;
+		transition: 350ms;
+	}
+	&__icon {
+		position: absolute;
+		top: 3px;
+		left: 2px;
+		z-index: 3;
+		display: flex;
+		svg {
+			fill: transparent;
+			transition: 350ms;
+			transform: scale(0.5);
+		}
+	}
+	&__label {
+		border-radius: 5px;
+	}
+	input {
+		display: none;
+		&:checked+.checkbox__label {
+			background: #349DA4;
+			border-color: #349DA4;
+			svg {
+				transform: scale(1);
+				fill: #FFFFFF;
+			}
+		}
+	}
+	@media (hover: none) {
+		&:active {
+			opacity: 0.5;
+		}
+	}
+	@media (hover: hover) {
+		&:hover .checkbox {
+			&__label {
+				border-color: #444F5A;
+				background: #212933;
+			}
+			&__text {
+				color: #E6E6E6;
+			}
+			input {
+				&:checked {
+					&+.checkbox {
+						&__label {
+							background: #308186;
+							border-color: #308186;
+							& .checkbox__icon svg {
+								fill: #E6E6E6;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.text {
+	max-width: 505px;
+	font-size: 16px;
+	line-height: calc(20/16);
+	color: #acacac;
+	@include resp('font-size', 16, 14);
+}
