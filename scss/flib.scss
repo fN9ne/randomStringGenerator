@@ -80,7 +80,9 @@ html, body {
 		}
 	}
 	@media (hover: hover) {
-		background: #151C24;
+		&:hover {
+			background: #151C24;
+		}
 	}
 }
 @keyframes ripple {
